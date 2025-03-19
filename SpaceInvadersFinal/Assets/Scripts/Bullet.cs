@@ -34,6 +34,11 @@ public class Bullet : MonoBehaviour
             GeneralManager.instance.selectedShip = 2;
             Menu.instance.LoadGame();
         }
+        else if (collision.gameObject.CompareTag("Enemy"))
+        {
+            collision.gameObject.SetActive(false);
+            EnemiesManager.instance.enemiesSpeed += EnemiesManager.instance.speedToAdd;
+        }
 
         Destroy(gameObject);
     }

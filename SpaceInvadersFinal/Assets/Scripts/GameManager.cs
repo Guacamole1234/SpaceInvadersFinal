@@ -19,4 +19,9 @@ public class GameManager : MonoBehaviour
             Instantiate(spaceShips[0], spawnPosition, Quaternion.identity);
         }
     }
+
+    public void RestartGameButton()
+    {
+        InGameUI.instance.ExitGameAnim();
+    }
 }
