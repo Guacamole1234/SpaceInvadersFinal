@@ -139,6 +139,8 @@ MonoBehaviour:
   bulletSpawnPosition: {x: 0, y: 0.6, z: 0}
   bulletPrefab: {fileID: 5409417008118228921, guid: 247f44e8f3d010345849d1d24fa738e2,
     type: 3}
+  specialBulletPrefab: {fileID: 5409417008118228921, guid: 5e046a2b8b33d784c9eb6a5b3ae02362,
+    type: 3}
 --- !u!136 &2962602445747824401
 CapsuleCollider:
   m_ObjectHideFlags: 0

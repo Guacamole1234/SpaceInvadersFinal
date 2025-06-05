@@ -15,6 +15,7 @@ public class SpaceshipMovement : MonoBehaviour
 
     [SerializeField] private Vector3 bulletSpawnPosition;
     [SerializeField] private GameObject bulletPrefab;
+    [SerializeField] private GameObject specialBulletPrefab;
 
     private void Start()
     {
@@ -47,11 +48,24 @@ public class SpaceshipMovement : MonoBehaviour
         {
             Instantiate(bulletPrefab, transform.position + bulletSpawnPosition, Quaternion.identity);
         }
+        else if (Input.GetKeyDown(KeyCode.E) && canShootSpecial)
+        {
+            Instantiate(specialBulletPrefab, transform.position + bulletSpawnPosition, Quaternion.identity);
+            StartCoroutine(specialShootTimer());
+        }
+    }
+
+    private IEnumerator specialShootTimer()
+    {
+        canShootSpecial = false;
+        yield return new WaitForSeconds(5f);
+        canShootSpecial = true;
+        yield return null;
     }
 
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawCube(transform.position + bulletSpawnPosition, new Vector3 (0.1f, 0.1f, 0.1f));
+        Gizmos.DrawCube(transform.position + bulletSpawnPosition, new Vector3(0.1f, 0.1f, 0.1f));
     }
 }
